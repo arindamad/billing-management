@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Invoices</title>
+</head>
+<body>
+  <h1>Invoices</h1>
+  <a href="/invoices/create">Create Invoice</a>
+  <ul>
+    <% invoices.forEach(invoice => { %>
+      <li>
+        Customer: <%= invoice.customer.name %><br>
+        Products:
+        <ul>
+          <% invoice.products.forEach(product => { %>
+            <li><%= product.name %> - <%= product.price %></li>
+          <% }); %>
+        </ul>
+        GST Rate: <%= invoice.gstRate %>%<br>
+        Discount Rate: <%= invoice.discountRate %>%<br>
+        Total Amount: <%= invoice.totalAmount %>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
